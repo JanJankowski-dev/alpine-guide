@@ -1,4 +1,9 @@
-# Getting Started
+### Plan
+
+- Swagger
+- TestContainers?
+- Auth
+- Flyway
 
 ### Reference Documentation
 For further reference, please consider the following sections:
