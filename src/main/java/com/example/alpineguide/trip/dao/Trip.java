@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Table(name = "trips")
 @Getter
 @Setter
-
 public class Trip {
 
     @Id
