@@ -1,6 +1,6 @@
 package com.example.alpineguide.trip.api;
 
-import com.example.alpineguide.trip.TripsService;
+import com.example.alpineguide.trip.service.TripsService;
 import com.example.alpineguide.trip.dao.Trip;
 import com.example.alpineguide.trip.dto.TripDto;
 import org.springframework.beans.factory.annotation.Autowired;

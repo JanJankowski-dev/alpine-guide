@@ -4,11 +4,16 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "trips")
+@Getter
+@Setter
+
 public class Trip {
 
     @Id
@@ -20,31 +25,4 @@ public class Trip {
     @Column(nullable = false)
     private String description;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
 }
