@@ -168,3 +168,11 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java,gradle
+/.idea/dataSources.xml
+/.idea/compiler.xml
+/.idea/modules/alpine-guide.main.iml
+/.idea/jarRepositories.xml
+/.idea/jpa-buddy.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+/.idea/modules.xml
