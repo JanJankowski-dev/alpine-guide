@@ -1,9 +1,0 @@
-services:
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: alpine
-      POSTGRES_USER: janek
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
