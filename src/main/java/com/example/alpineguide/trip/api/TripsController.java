@@ -1,5 +1,6 @@
 package com.example.alpineguide.trip.api;
 
+import com.example.alpineguide.trip.dto.Trips;
 import com.example.alpineguide.trip.service.TripsService;
 import com.example.alpineguide.trip.dao.Trip;
 import com.example.alpineguide.trip.dto.TripDto;
@@ -8,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/trips")
@@ -23,8 +22,8 @@ public class TripsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TripDto>> getTrips() {
-        return ResponseEntity.ok(tripsService.getTrips().stream().map(this::toDto).toList());
+    public ResponseEntity<Trips> getTrips() {
+        return ResponseEntity.ok(new Trips(tripsService.getTrips().stream().map(this::toDto).toList()));
     }
 
     private TripDto toDto(Trip it) {
