@@ -19,6 +19,14 @@ dependencies {
 	// spring boot
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// security
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+	implementation 'org.keycloak:keycloak-spring-boot-starter:23.0.7'
+
 	implementation 'com.zaxxer:HikariCP:5.1.0'
 
 	// openapi + swagger
@@ -28,6 +36,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
 	runtimeOnly 'org.postgresql:postgresql'
+	// tests
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	testCompileOnly 'org.projectlombok:lombok:1.18.30'
