@@ -1,7 +1,7 @@
-package com.example.alpineguide.trip.service;
+package com.example.alpineguide.trips.service;
 
-import com.example.alpineguide.trip.dao.Trip;
-import com.example.alpineguide.trip.repository.TripsRepository;
+import com.example.alpineguide.trips.dao.Trip;
+import com.example.alpineguide.trips.repository.TripsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

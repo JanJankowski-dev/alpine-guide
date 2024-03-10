@@ -1,9 +1,9 @@
-package com.example.alpineguide.trip.api;
+package com.example.alpineguide.trips.api;
 
-import com.example.alpineguide.trip.dto.Trips;
-import com.example.alpineguide.trip.service.TripsService;
-import com.example.alpineguide.trip.dao.Trip;
-import com.example.alpineguide.trip.dto.TripDto;
+import com.example.alpineguide.trips.dto.Trips;
+import com.example.alpineguide.trips.service.TripsService;
+import com.example.alpineguide.trips.dao.Trip;
+import com.example.alpineguide.trips.dto.TripDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

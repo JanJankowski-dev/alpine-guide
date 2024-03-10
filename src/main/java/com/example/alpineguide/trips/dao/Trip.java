@@ -1,4 +1,4 @@
-package com.example.alpineguide.trip.dao;
+package com.example.alpineguide.trips.dao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

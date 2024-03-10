@@ -1,4 +1,4 @@
-package com.example.alpineguide.trip.dto;
+package com.example.alpineguide.trips.dto;
 
 import java.util.List;
 
