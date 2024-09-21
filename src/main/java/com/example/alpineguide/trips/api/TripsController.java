@@ -27,6 +27,6 @@ public class TripsController {
     }
 
     private TripDto toDto(Trip it) {
-        return new TripDto(it.getId(), it.getStartDate(), it.getEndDate(), it.getDescription());
+        return new TripDto(it.getStartDate(), it.getEndDate(), it.getDescription());
     }
 }

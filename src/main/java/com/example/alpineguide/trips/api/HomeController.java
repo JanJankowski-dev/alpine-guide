@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.security.KeyFactory;
-import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.Base64;
@@ -45,28 +44,32 @@ public class HomeController {
     }
 
     @RolesAllowed("user")
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/test-jwt-sign")
     public ResponseEntity<String> getUser(@RequestHeader("Authorization") String authorization) {
 
+        ResponseEntity<String> subject = verify(authorization);
+        if (subject != null) return subject;
+
+
+        return ResponseEntity.ok("Hello User");
+    }
+
+    private ResponseEntity<String> verify(String authorization) {
         if (authorization != null && authorization.startsWith("Bearer ")) {
             String token = authorization.substring(7);
 
             try {
-                DecodedJWT jwt = JWT.decode(token);
-                DecodedJWT decodedJWT = verifyToken(token);
+                DecodedJWT jwt = verifyToken(token);
 
                 String subject = jwt.getSubject();
                 List<String> roles = jwt.getClaim("resource_access").asList(String.class);
 
                 return ResponseEntity.ok("Hello " + subject + ", roles: " + roles);
             } catch (Exception e) {
-                // Obsługa wyjątku, np. nieprawidłowy token JWT
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid token");
             }
         }
-
-
-        return ResponseEntity.ok("Hello User");
+        return null;
     }
 
     @RolesAllowed("admin")
