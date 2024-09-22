@@ -10,9 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_CLASS;
 
 @SpringBootTest(classes = {TestDbConfiguration.class})
-@Sql(scripts = "classpath:trips.sql")
+@Sql(scripts = "classpath:trips.sql", executionPhase = BEFORE_TEST_CLASS)
 public class TripsServiceTest {
 
     @Autowired
@@ -20,7 +23,7 @@ public class TripsServiceTest {
 
     @Test
     public void shouldCreateTrips() {
-         // given
+        // given
         TripDto tripDto = new TripDto(
                 LocalDate.now().minusDays(3),
                 LocalDate.now().plusDays(10),
@@ -31,5 +34,7 @@ public class TripsServiceTest {
 
         // then
         Assertions.assertNotNull(trip);
+        List<Trip> trips = tripsService.getTrips();
+        Assertions.assertEquals(1, trips.size());
     }
 }

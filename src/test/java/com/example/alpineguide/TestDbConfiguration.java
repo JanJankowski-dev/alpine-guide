@@ -2,8 +2,8 @@ package com.example.alpineguide;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.testcontainers.containers.PostgreSQLContainer;
 
@@ -23,6 +23,7 @@ public class TestDbConfiguration {
         return new JdbcTemplate(dataSource);
     }
 
+
     @Bean
     public DataSource dataSource(PostgreSQLContainer postgres) {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
@@ -32,5 +33,4 @@ public class TestDbConfiguration {
         dataSourceBuilder.url(postgres.getJdbcUrl());
         return dataSourceBuilder.build();
     }
-
 }

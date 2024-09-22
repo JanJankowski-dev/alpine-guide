@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: "2"
+      author: "j.jankowski"
+      changes:
+        - createTable:
+            tableName: "users"
+            columns:
+              - column:
+                  name: "id"
+                  type: "BIGINT"
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: "name"
+                  type: "VARCHAR(255)"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "trips_id"
+                  type: "BIGINT"
+  - changeSet:
+      id: "3"
+      author: "j.jankowski"
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: "users"
+            baseColumnNames: "trips_id"
+            constraintName: "FK_USERS_ON_TRIPS"
+            referencedTableName: "trips"
+            referencedColumnNames: "id"
