@@ -20,4 +20,8 @@ public class User {
     @ManyToOne
     private Trip trips;
 
+    public User(String name) {
+        this.name = name;
+    }
+
 }

@@ -1,8 +1,9 @@
-package com.example.alpineguide.trips.service;
+package com.example.alpineguide.IT.trips.service;
 
 import com.example.alpineguide.TestDbConfiguration;
 import com.example.alpineguide.trips.dao.Trip;
 import com.example.alpineguide.trips.dto.TripDto;
+import com.example.alpineguide.trips.service.TripsService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,11 @@ public class TripsServiceTest {
                 "Bike Trip");
 
         // when
-        Trip trip = tripsService.create(tripDto);
+        Trip trip = tripsService.createTrip(tripDto);
 
         // then
         Assertions.assertNotNull(trip);
-        List<Trip> trips = tripsService.getTrips();
+        List<Trip> trips = tripsService.findAllTrips();
         Assertions.assertEquals(1, trips.size());
     }
 }
