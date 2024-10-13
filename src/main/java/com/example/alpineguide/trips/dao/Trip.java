@@ -5,10 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "trips")
+@Table(name = "trip")
 @Getter
 @Setter
 public class Trip {
@@ -26,8 +27,7 @@ public class Trip {
     @Column(nullable = false)
     private String description;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @OrderColumn(name = "name")
-    List<User> userList;
+    @ManyToMany(mappedBy = "trips")
+    private Set<Person> participants = new HashSet<>();
 
 }
