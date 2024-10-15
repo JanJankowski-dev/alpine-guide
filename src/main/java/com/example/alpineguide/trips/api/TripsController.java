@@ -6,9 +6,7 @@ import com.example.alpineguide.trips.dto.Trips;
 import com.example.alpineguide.trips.service.TripsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/trips")
@@ -24,6 +22,11 @@ public class TripsController {
     @GetMapping
     public ResponseEntity<Trips> getTrips() {
         return ResponseEntity.ok(new Trips(tripsService.findAllTrips().stream().map(this::toDto).toList()));
+    }
+
+    @PostMapping
+    public ResponseEntity<Integer> createTrip(@RequestBody TripDto tripDto) {
+        return ResponseEntity.ok(tripsService.createTrip(tripDto).getId());
     }
 
     private TripDto toDto(Trip it) {
