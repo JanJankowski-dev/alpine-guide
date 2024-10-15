@@ -20,7 +20,7 @@ public class TripsService {
         return tripsRepository.findAll();
     }
 
-    public Trip createTrip(TripDto tripDto) {
+    public Trip create(TripDto tripDto) {
         Trip trip = new Trip();
         trip.setDescription(tripDto.description());
         trip.setStartDate(tripDto.startDate());

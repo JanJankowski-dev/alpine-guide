@@ -26,7 +26,7 @@ public class TripsController {
 
     @PostMapping
     public ResponseEntity<Integer> createTrip(@RequestBody TripDto tripDto) {
-        return ResponseEntity.ok(tripsService.createTrip(tripDto).getId());
+        return ResponseEntity.ok(tripsService.create(tripDto).getId());
     }
 
     private TripDto toDto(Trip it) {

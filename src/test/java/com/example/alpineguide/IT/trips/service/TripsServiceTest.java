@@ -3,7 +3,7 @@ package com.example.alpineguide.IT.trips.service;
 import com.example.alpineguide.TestDbConfiguration;
 import com.example.alpineguide.trips.dao.Person;
 import com.example.alpineguide.trips.dao.Trip;
-import com.example.alpineguide.trips.dto.PersonDTO;
+import com.example.alpineguide.trips.dto.PersonDto;
 import com.example.alpineguide.trips.dto.TripDto;
 import com.example.alpineguide.trips.service.PersonService;
 import com.example.alpineguide.trips.service.TripsService;
@@ -37,11 +37,11 @@ public class TripsServiceTest {
                 LocalDate.now().plusDays(10),
                 "Bike Trip");
 
-        PersonDTO personDTO = new PersonDTO("DUNCAN");
+        PersonDto personDTO = new PersonDto("DUNCAN");
 
         // when
-        Trip trip = tripsService.createTrip(tripDto);
-        Person person = personService.createPerson(personDTO);
+        Trip trip = tripsService.create(tripDto);
+        Person person = personService.create(personDTO);
         var result = personService.assignTrip(person.getId(), trip.getId());
 
         // then

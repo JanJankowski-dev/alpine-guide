@@ -1,4 +1,4 @@
 package com.example.alpineguide.trips.dto;
 
-public record PersonDTO(String name) {
+public record PersonDto(String name) {
 }
